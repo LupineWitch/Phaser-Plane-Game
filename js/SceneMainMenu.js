@@ -20,6 +20,8 @@ class SceneMainMenu extends Phaser.Scene
     // Play button
     this.load.audio("sndBtnOver", "Content/Sounds/sfx_menu_move4.wav");
     this.load.audio("sndBtnDown", "Content/Sounds/sfx_menu_select1.wav");
+    this.load.audio("backgroundMusic", "Content/Music/SoundHelix-Song-16.mp3");
+
   }
 
   create() 
@@ -29,6 +31,9 @@ class SceneMainMenu extends Phaser.Scene
       btnOver: this.sound.add("sndBtnOver"),
       btnDown: this.sound.add("sndBtnDown")
     };
+
+    this.bgMusic = this.sound.add('backgroundMusic', { volume: 0.5, loop: true });
+    this.bgMusic.play();
 
     // Create play button
     this.btnPlay = this.add.sprite(this.game.config.width * 0.5,this.game.config.height * 0.5,"sprBtnPlay");

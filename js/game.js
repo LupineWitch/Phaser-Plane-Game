@@ -15,7 +15,8 @@ var config = {
     SceneGameOver
   ],
   pixelArt: true,
-  roundPixels: true
+  roundPixels: true,
+  autoCenter: true,
 };
 
 var game = new Phaser.Game(config);

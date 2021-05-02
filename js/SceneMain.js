@@ -3,6 +3,7 @@ class SceneMain extends Phaser.Scene
   constructor() 
   {
     super({ key: "SceneMain" });
+  
   }
 
   preload() 
@@ -26,15 +27,53 @@ class SceneMain extends Phaser.Scene
     //Sounds
     //Laser
     this.load.audio("sndLaser", "Content/Sounds/sfx_wpn_laser12.wav");
+    this.load.audio("sndexp", "Content/Sounds/sfx_exp_medium1.wav");
+
+    //Animations - load sprites
+    this.load.image("expFrame1", "Content/Explosions/Explosion1/Explosion_1.png");
+    this.load.image("expFrame2", "Content/Explosions/Explosion1/Explosion_2.png");
+    this.load.image("expFrame3", "Content/Explosions/Explosion1/Explosion_3.png");
+    this.load.image("expFrame4", "Content/Explosions/Explosion1/Explosion_4.png");
+    this.load.image("expFrame5", "Content/Explosions/Explosion1/Explosion_5.png");
+    this.load.image("expFrame6", "Content/Explosions/Explosion1/Explosion_6.png");
+    this.load.image("expFrame7", "Content/Explosions/Explosion1/Explosion_7.png");
+
+    
+
   }
+
 
   create() 
   {
+    //GUI
+
+    var score_info = this.add.text(10, 10, 'Score: 0', { font: '48px Arial', fill: '#FFFFFF' });
+    var score = 0;
+
     // Adding sounds to array
     this.sfx =
     {  
-      laser: this.sound.add("sndLaser")
+      laser: this.sound.add("sndLaser"),
+      explosion1: this.sound.add("sndexp")
+
     };
+
+        //Animations create
+        this.anims.create({
+          key: 'deathExplosion',
+          frames: [
+              { key: 'expFrame1' },
+              { key: 'expFrame2' },
+              { key: 'expFrame3' },
+              { key: 'expFrame4' },
+              { key: 'expFrame5' },
+              { key: 'expFrame6' },
+              { key: 'expFrame7', duration: 50 }
+          ],
+          frameRate: 16,
+          repeat: 0
+      });
+
 
     //Buttons init
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
@@ -76,7 +115,7 @@ class SceneMain extends Phaser.Scene
         
             if (enemy !== null) 
             {
-              enemy.setScale(Phaser.Math.Between(10, 20) * 0.05);
+              enemy.setScale(Phaser.Math.Between(10, 15) * 0.04);
               this.enemies.add(enemy);
             }
         },
@@ -95,6 +134,8 @@ class SceneMain extends Phaser.Scene
       
         enemy.explode(true);
         playerLaser.destroy();
+        score = score + 1;
+        score_info.setText('Score: ' + score);
       }
     });
 
@@ -239,4 +280,7 @@ class SceneMain extends Phaser.Scene
       this.backgrounds[i].update();
     }
   }
+
+
+
 }
