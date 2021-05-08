@@ -23,7 +23,8 @@ class SceneMain extends Phaser.Scene
     this.load.image("player_proj_0","Content/SpaceShooterRedux/PNG/Lasers/laserGreen11.png");
     //Player
     this.load.image("player0","Content/SpaceShooterRedux/PNG/playerShip1_green.png");
-
+    this.load.image("player1","Content/PowerUps/Shield/playerShip1_green_shield.png");
+    this.load.image("shield1", "Content/SpaceShooterRedux/PNG/Effects/shield1.png")
     //Sounds
     //Laser
     this.load.audio("sndLaser", "Content/Sounds/sfx_wpn_laser12.wav");
@@ -37,6 +38,40 @@ class SceneMain extends Phaser.Scene
     this.load.image("expFrame5", "Content/Explosions/Explosion1/Explosion_5.png");
     this.load.image("expFrame6", "Content/Explosions/Explosion1/Explosion_6.png");
     this.load.image("expFrame7", "Content/Explosions/Explosion1/Explosion_7.png");
+    //Bonuses
+   // this.load.image("power_up0", "Content/PowerUps/heart_sprites.png");
+    //this.load.spritesheet("power_up0", "Content/PowerUps/heart_sprites.png", { frameWidth: 64, frameHeight: 64 } );
+    this.load.image("power_up0_f1", "Content/PowerUps/Heart/hear (1).png");
+    this.load.image("power_up0_f2", "Content/PowerUps/Heart/hear (2).png");
+    this.load.image("power_up0_f3", "Content/PowerUps/Heart/hear (3).png");
+    this.load.image("power_up0_f4", "Content/PowerUps/Heart/hear (4).png");
+    this.load.image("power_up0_f5", "Content/PowerUps/Heart/hear (5).png");
+    this.load.image("power_up0_f6", "Content/PowerUps/Heart/hear (6).png");
+    this.load.image("power_up0_f7", "Content/PowerUps/Heart/hear (7).png");
+    this.load.image("power_up0_f8", "Content/PowerUps/Heart/hear (8).png");
+    this.load.image("power_up0_f9", "Content/PowerUps/Heart/hear (9).png");
+
+    this.load.image("power_up1_f1", "Content/PowerUps/Triple/triple (1).png");
+    this.load.image("power_up1_f2", "Content/PowerUps/Triple/triple (2).png");
+    this.load.image("power_up1_f3", "Content/PowerUps/Triple/triple (3).png");
+    this.load.image("power_up1_f4", "Content/PowerUps/Triple/triple (4).png");
+    this.load.image("power_up1_f5", "Content/PowerUps/Triple/triple (5).png");
+    this.load.image("power_up1_f6", "Content/PowerUps/Triple/triple (6).png");
+    this.load.image("power_up1_f7", "Content/PowerUps/Triple/triple (7).png");
+    this.load.image("power_up1_f8", "Content/PowerUps/Triple/triple (8).png");
+
+    this.load.image("power_up2_f1", "Content/PowerUps/Shield/pixil-frame-0.png");
+    this.load.image("power_up2_f2", "Content/PowerUps/Shield/pixil-frame-1.png");
+    this.load.image("power_up2_f3", "Content/PowerUps/Shield/pixil-frame-2.png");
+    this.load.image("power_up2_f4", "Content/PowerUps/Shield/pixil-frame-3.png");
+    this.load.image("power_up2_f5", "Content/PowerUps/Shield/pixil-frame-4.png");
+    this.load.image("power_up2_f6", "Content/PowerUps/Shield/pixil-frame-5.png");
+    this.load.image("power_up2_f7", "Content/PowerUps/Shield/pixil-frame-6.png");
+    this.load.image("power_up2_f8", "Content/PowerUps/Shield/pixil-frame-7.png");
+    this.load.image("power_up2_f9", "Content/PowerUps/Shield/pixil-frame-8.png");
+    this.load.image("power_up2_f10", "Content/PowerUps/Shield/pixil-frame-9.png");
+    this.load.image("power_up2_f11", "Content/PowerUps/Shield/pixil-frame-10.png");
+    this.load.image("power_up2_f12", "Content/PowerUps/Shield/pixil-frame-11.png");
 
     
 
@@ -47,8 +82,7 @@ class SceneMain extends Phaser.Scene
   {
     //GUI
 
-    var score_info = this.add.text(10, 10, 'Score: 0', { font: '48px Arial', fill: '#FFFFFF' });
-    var score = 0;
+
 
     // Adding sounds to array
     this.sfx =
@@ -74,6 +108,58 @@ class SceneMain extends Phaser.Scene
           repeat: 0
       });
 
+      this.anims.create({
+        key: 'power_up0anim',
+        frames: [
+            { key: 'power_up0_f1' },
+            { key: 'power_up0_f2' },
+            { key: 'power_up0_f3' },
+            { key: 'power_up0_f4' },
+            { key: 'power_up0_f5' },
+            { key: 'power_up0_f6' },
+            { key: 'power_up0_f7' },
+            { key: 'power_up0_f8' },
+            { key: 'power_up0_f9', duration: 20 }
+        ],
+        frameRate: 5,
+        repeat: -1
+    });
+
+    this.anims.create({
+      key: 'power_up1anim',
+      frames: [
+          { key: 'power_up1_f1' },
+          { key: 'power_up1_f2' },
+          { key: 'power_up1_f3' },
+          { key: 'power_up1_f4' },
+          { key: 'power_up1_f5' },
+          { key: 'power_up1_f6' },
+          { key: 'power_up1_f7' },
+          { key: 'power_up1_f8', duration: 20 }
+      ],
+      frameRate: 5,
+      repeat: -1
+  });
+
+  this.anims.create({
+    key: 'power_up2anim',
+    frames: [
+        { key: 'power_up2_f1' },
+        { key: 'power_up2_f2' },
+        { key: 'power_up2_f3' },
+        { key: 'power_up2_f4' },
+        { key: 'power_up2_f5' },
+        { key: 'power_up2_f6' },
+        { key: 'power_up2_f7' },
+        { key: 'power_up2_f8' },
+        { key: 'power_up2_f9' },
+        { key: 'power_up2_f10' },
+        { key: 'power_up2_f11' },
+        { key: 'power_up2_f12', duration: 20 }
+    ],
+    frameRate: 5,
+    repeat: -1
+});
 
     //Buttons init
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
@@ -84,10 +170,13 @@ class SceneMain extends Phaser.Scene
     //Player Init
     this.player = new Player( this, this.game.config.width * 0.5,this.game.config.height * 0.5,"player0");
     this.player.setScale(0.5);
+    var HP_info = this.add.text(10, 10, 'HP: 3', { font: '48px Arial', fill: '#FFFFFF' });
     //Entity groups init
     this.enemies = this.add.group();
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
+    this.pickUps = this.add.group();
+
 
     ///Random spawn event
     this.time.addEvent({
@@ -97,6 +186,11 @@ class SceneMain extends Phaser.Scene
             if (Phaser.Math.Between(0, 10) >= 3) 
             {
               enemy = new GunShip(this, Phaser.Math.Between(0, this.game.config.width), 0);
+            }
+            else if(Phaser.Math.Between(0, 10) >= 5)
+            {
+              enemy = new SliderShip(this, 70, 0);
+
             }
             else 
             {
@@ -123,6 +217,40 @@ class SceneMain extends Phaser.Scene
         loop: true
     });
 
+    //Spawn power up
+    this.time.addEvent({
+      delay: 2000,
+      callback: function() {
+          var powerUp = null;
+          if (Phaser.Math.Between(0, 10) >= 3) 
+          {
+            powerUp = new Power_up(this, Phaser.Math.Between(0, this.game.config.width), 0, "power_up0_f1","power_up","HP");
+            powerUp.setScale(1);
+            powerUp.play("power_up0anim");
+
+          }
+          else if(Phaser.Math.Between(0,10) >= 4)
+          {
+            powerUp = new Power_up(this, Phaser.Math.Between(0, this.game.config.width), 0, "power_up1_f1","power_up","TripleShot");
+            powerUp.setScale(1.5);
+            powerUp.play("power_up1anim");
+          }
+          else if(Phaser.Math.Between(0,10) >= 7)
+          {
+            powerUp = new Power_up(this, Phaser.Math.Between(0, this.game.config.width), 0, "power_up2_f1","power_up","Shield");
+            powerUp.setScale(1.5);
+            powerUp.play("power_up2anim");
+          }
+      
+          if (powerUp !== null) 
+          {
+            this.pickUps.add(powerUp);
+          }
+      },
+      callbackScope: this,
+      loop: true
+  });
+
     // Collisions between player projectiles and enemies
     this.physics.add.collider(this.playerLasers, this.enemies, function(playerLaser, enemy) {
       if (enemy) 
@@ -134,14 +262,13 @@ class SceneMain extends Phaser.Scene
       
         enemy.explode(true);
         playerLaser.destroy();
-        score = score + 1;
-        score_info.setText('Score: ' + score);
+
       }
     });
 
     // Overlaping
     this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
-      if (!player.getData("isDead") && !enemy.getData("isDead")) 
+      if (!player.getData("isDead") && !enemy.getData("isDead") && player.getData("CurrBonus") != "Shield") 
       {
         player.explode(false);
         player.onDestroy();
@@ -150,12 +277,42 @@ class SceneMain extends Phaser.Scene
     });
 
     this.physics.add.overlap(this.player, this.enemyLasers, function(player, laser) {
-      if (!player.getData("isDead") && !laser.getData("isDead")) 
+      laser.destroy();
+      let tempHP = Number.parseInt(player.getData("HitPoints"));
+      player.setData("HitPoints", tempHP <= 0 ? 0 :tempHP - 1 );
+      HP_info.setText('HP: ' + Number.parseInt(player.getData("HitPoints")));
+      if (player.getData("HitPoints") <= 0 && !laser.getData("isDead") && player.getData("CurrBonus") != "Shield") 
       {
         player.explode(false);
-        player.onDestroy();
-        laser.destroy();
+      laser.destroy();
+      player.onDestroy();
       }
+    });
+
+    this.physics.add.overlap(this.player,this.pickUps,function(player,pickup)
+    {
+      var bonus = pickup.getData("bonus_type");
+      var hp = Number.parseInt(player.getData("HitPoints"));
+      switch(bonus)
+      {
+        case "HP":
+          player.setData("HitPoints", hp + 1);
+      HP_info.setText('HP: ' + Number.parseInt(player.getData("HitPoints")));
+          break;
+        case "TripleShot":
+          player.setData("CurrBonus","TripleShot");
+          player.setData("BonusTimeUP", 1000);          
+          break;
+          case "Shield":
+            player.setData("CurrBonus","Shield");
+            player.setData("BonusTimeUP", 1000); 
+            player.setTexture("player1"); 
+            //this.shield = new Shield(this, player.x, player.y, "shield1","shield_gizmo"); 
+            break;
+        default:
+          break;
+    }
+    pickup.destroy();
     });
 
     // Create background(s)
@@ -183,6 +340,12 @@ class SceneMain extends Phaser.Scene
 
   update()
   {
+
+    if(this.shield != undefined)
+    {
+    this.shield.update();
+    }
+
     if (!this.player.getData("isDead"))
     {
       this.player.update();
@@ -270,6 +433,21 @@ class SceneMain extends Phaser.Scene
         if (laser) 
         {
           laser.destroy();
+        }
+      }
+    }
+
+    for (var i = 0; i < this.pickUps.getChildren().length; i++) 
+    {
+      var pickUp = this.pickUps.getChildren()[i];
+     // pickUps.update();
+
+      if (pickUp.x < -pickUp.displayWidth || pickUp.x > this.game.config.width + pickUp.displayWidth ||
+        pickUp.y < -pickUp.displayHeight * 4 || pickUp.y > this.game.config.height + pickUp.displayHeight) 
+      {
+        if (pickUp) 
+        {
+          pickUp.destroy();
         }
       }
     }
