@@ -31,16 +31,17 @@ class SceneMain extends Phaser.Scene
     this.load.audio("sndexp", "Content/Sounds/sfx_exp_medium1.wav");
 
     //Animations - load sprites
-    this.load.image("expFrame1", "Content/Explosions/Explosion1/Explosion_1.png");
-    this.load.image("expFrame2", "Content/Explosions/Explosion1/Explosion_2.png");
-    this.load.image("expFrame3", "Content/Explosions/Explosion1/Explosion_3.png");
-    this.load.image("expFrame4", "Content/Explosions/Explosion1/Explosion_4.png");
-    this.load.image("expFrame5", "Content/Explosions/Explosion1/Explosion_5.png");
-    this.load.image("expFrame6", "Content/Explosions/Explosion1/Explosion_6.png");
-    this.load.image("expFrame7", "Content/Explosions/Explosion1/Explosion_7.png");
+    // Explosion
+    this.load.image("expFrame1", "Content/Explosions/Explosion_1.png");
+    this.load.image("expFrame2", "Content/Explosions/Explosion_2.png");
+    this.load.image("expFrame3", "Content/Explosions/Explosion_3.png");
+    this.load.image("expFrame4", "Content/Explosions/Explosion_4.png");
+    this.load.image("expFrame5", "Content/Explosions/Explosion_5.png");
+    this.load.image("expFrame6", "Content/Explosions/Explosion_6.png");
+    this.load.image("expFrame7", "Content/Explosions/Explosion_7.png");
+
     //Bonuses
-   // this.load.image("power_up0", "Content/PowerUps/heart_sprites.png");
-    //this.load.spritesheet("power_up0", "Content/PowerUps/heart_sprites.png", { frameWidth: 64, frameHeight: 64 } );
+    // Heart
     this.load.image("power_up0_f1", "Content/PowerUps/Heart/hear (1).png");
     this.load.image("power_up0_f2", "Content/PowerUps/Heart/hear (2).png");
     this.load.image("power_up0_f3", "Content/PowerUps/Heart/hear (3).png");
@@ -50,7 +51,7 @@ class SceneMain extends Phaser.Scene
     this.load.image("power_up0_f7", "Content/PowerUps/Heart/hear (7).png");
     this.load.image("power_up0_f8", "Content/PowerUps/Heart/hear (8).png");
     this.load.image("power_up0_f9", "Content/PowerUps/Heart/hear (9).png");
-
+    // Triple shot
     this.load.image("power_up1_f1", "Content/PowerUps/Triple/triple (1).png");
     this.load.image("power_up1_f2", "Content/PowerUps/Triple/triple (2).png");
     this.load.image("power_up1_f3", "Content/PowerUps/Triple/triple (3).png");
@@ -59,7 +60,7 @@ class SceneMain extends Phaser.Scene
     this.load.image("power_up1_f6", "Content/PowerUps/Triple/triple (6).png");
     this.load.image("power_up1_f7", "Content/PowerUps/Triple/triple (7).png");
     this.load.image("power_up1_f8", "Content/PowerUps/Triple/triple (8).png");
-
+    // Shield
     this.load.image("power_up2_f1", "Content/PowerUps/Shield/pixil-frame-0.png");
     this.load.image("power_up2_f2", "Content/PowerUps/Shield/pixil-frame-1.png");
     this.load.image("power_up2_f3", "Content/PowerUps/Shield/pixil-frame-2.png");
@@ -72,9 +73,6 @@ class SceneMain extends Phaser.Scene
     this.load.image("power_up2_f10", "Content/PowerUps/Shield/pixil-frame-9.png");
     this.load.image("power_up2_f11", "Content/PowerUps/Shield/pixil-frame-10.png");
     this.load.image("power_up2_f12", "Content/PowerUps/Shield/pixil-frame-11.png");
-
-    
-
   }
 
 
