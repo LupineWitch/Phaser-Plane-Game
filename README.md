@@ -22,3 +22,11 @@ All power ups are activated on pickup:
 
 * Steer with WSAD
 * Shoot with SPACEBAR
+
+
+
+## Assets
+
+* [Space Shooter Redux](https://opengameart.org/content/space-shooter-redux) - by Kenney.nl
+* [Essential Retro Video Game Effects](https://soundcloud.com/juhanijunkala/free-retro-video-game-sound-effects-pack-preview-512-sounds-download-link-in-desctiption) - by Juhani Junkala
+* [SoundHelix Song 16](https://www.soundhelix.com/audio-examples) - by T. Schürger
