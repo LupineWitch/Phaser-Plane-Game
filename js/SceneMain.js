@@ -78,10 +78,6 @@ class SceneMain extends Phaser.Scene
 
   create() 
   {
-    //GUI
-
-
-
     // Adding sounds to array
     this.sfx =
     {  
@@ -339,11 +335,6 @@ class SceneMain extends Phaser.Scene
   update()
   {
 
-    if(this.shield != undefined)
-    {
-    this.shield.update();
-    }
-
     if (!this.player.getData("isDead"))
     {
       this.player.update();
@@ -404,7 +395,6 @@ class SceneMain extends Phaser.Scene
       }
     }
 
-
     for (var i = 0; i < this.enemyLasers.getChildren().length; i++) 
     {
       var laser = this.enemyLasers.getChildren()[i];
@@ -449,14 +439,10 @@ class SceneMain extends Phaser.Scene
         }
       }
     }
-
     // Scroll background
     for (var i = 0; i < this.backgrounds.length; i++)
     {
       this.backgrounds[i].update();
     }
   }
-
-
-
 }
