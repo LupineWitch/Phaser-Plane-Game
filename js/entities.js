@@ -45,16 +45,6 @@ class Entity extends Phaser.GameObjects.Sprite
        }, this);
 
        this.setData("isDead", true);
-      // if (canDestroy) 
-      //   {
-      //      this.destroy();
-      //   }
-      // else 
-      //   {
-      //      this.setVisible(false);
-      //   }
-
-
     }
   }
 }
@@ -72,9 +62,6 @@ class Player extends Entity
     this.setData("CurrBonus","None");
     this.setData("BonusTicks",0);
     this.setData("BonusTimeUP",-1);
-
-
-
   }
 
   onDestroy()
@@ -114,16 +101,15 @@ class Player extends Entity
 
   update()
   {
-    let time_UP = Number.parseInt(this.getData("BonusTimeUP"));
+    let time_UP = Number.parseInt(this.getData("BonusTimeUP")); // Get the bonus timer
     this.body.setVelocity(0, 0);
-
     //Stay in bounds
     this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
     this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
 
     if(time_UP > -1)
     {
-
+      // Bonus timer logic
      let bonusTicks = Number.parseInt(this.getData("BonusTicks")) + 1;
       if(bonusTicks >= time_UP)
       {
@@ -147,7 +133,7 @@ class Player extends Entity
         }
         else 
         {
-          // when the "manual timer" is triggered:
+          // when the "manual timer" is triggered: ???
           if(this.getData("CurrBonus") != "TripleShot")
           {
           var laser = new PlayerLaser(this.scene, this.x, this.y);
@@ -227,12 +213,6 @@ class ChaserShip extends Entity
           }
       }
 
-      //   if (this.x < this.scene.player.x) {
-      //     this.angle -= 5;
-      //   }
-      //   else {
-      //      this.angle += 5;
-      //  } 
   }
 }
   
@@ -280,7 +260,7 @@ class SliderShip extends Entity
 {
   constructor(scene, x, y) 
   {
-    console.log("SLider made");
+   // console.log("SLider made");
     super(scene, x, y, "enemy4", "SliderShip");
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
@@ -339,28 +319,28 @@ class Power_up extends Phaser.GameObjects.Sprite
 
 }
 
-class Shield extends  Phaser.GameObjects.Sprite
-{
-  constructor(scene, x, y, key, type,bonus_type) 
-  {
-      super(scene, x, y, key);
-      this.scene = scene;
-      this.scene.add.existing(this);
-      //this.scene.physics.world.enableBody(this, 0);
-      this.setData("type", type);
-  }
+// class Shield extends  Phaser.GameObjects.Sprite
+// {
+//   constructor(scene, x, y, key, type,bonus_type) 
+//   {
+//       super(scene, x, y, key);
+//       this.scene = scene;
+//       this.scene.add.existing(this);
+//       //this.scene.physics.world.enableBody(this, 0);
+//       this.setData("type", type);
+//   }
 
-  update()
-  {
-    this.x = this.scene.player.x 
-    this.y = this.scene.player.y 
-    if(this.scene.player.getData("CurrBonus") != "Shield")
-    {
-      this.destroy();
-    }
-  }
+//   update()
+//   {
+//     this.x = this.scene.player.x 
+//     this.y = this.scene.player.y 
+//     if(this.scene.player.getData("CurrBonus") != "Shield")
+//     {
+//       this.destroy();
+//     }
+//   }
 
-}
+// }
 class ScrollingBackground 
 {
   constructor(scene, key, velocityY) 
